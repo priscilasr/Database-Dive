@@ -41,6 +41,8 @@ public class ContentViewer extends javax.swing.JFrame {
     
     Scanner Maya = new Scanner(System.in);
     
+    boolean checkdate = false;
+    
    
     
     
@@ -75,10 +77,11 @@ public class ContentViewer extends javax.swing.JFrame {
         Recommended1 = new javax.swing.JButton();
         GenreButton1 = new javax.swing.JButton();
         TrendingBotton1 = new javax.swing.JButton();
-        getUser1 = new javax.swing.JTextField();
+        GetUser = new javax.swing.JTextField();
         TextName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         Result = new javax.swing.JTextArea();
+        DatesButton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -192,7 +195,7 @@ public class ContentViewer extends javax.swing.JFrame {
                 .addComponent(historyButton)
                 .addGap(35, 35, 35)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(29, 29, 29))
         );
@@ -231,14 +234,8 @@ public class ContentViewer extends javax.swing.JFrame {
             }
         });
 
-        getUser1.setBackground(new java.awt.Color(17, 23, 64));
-        getUser1.setForeground(new java.awt.Color(149, 152, 207));
-        getUser1.setText(" Search");
-        getUser1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getUser1ActionPerformed(evt);
-            }
-        });
+        GetUser.setBackground(new java.awt.Color(204, 204, 204));
+        GetUser.setText("Search");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -252,8 +249,8 @@ public class ContentViewer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TrendingBotton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(getUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9))
+                .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +260,7 @@ public class ContentViewer extends javax.swing.JFrame {
                     .addComponent(Recommended1)
                     .addComponent(GenreButton1)
                     .addComponent(TrendingBotton1)
-                    .addComponent(getUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -283,6 +280,14 @@ public class ContentViewer extends javax.swing.JFrame {
         Result.setBorder(null);
         jScrollPane2.setViewportView(Result);
 
+        DatesButton.setBackground(new java.awt.Color(255, 255, 255));
+        DatesButton.setText("Dates");
+        DatesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -292,42 +297,45 @@ public class ContentViewer extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2)
-                                .addContainerGap())))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(DatesButton)
+                                        .addGap(103, 103, 103))))))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 297, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(DatesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -467,89 +475,49 @@ public class ContentViewer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_getUserActionPerformed
 
-    private void getUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUser1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getUser1ActionPerformed
-
     private void TrendingBotton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrendingBotton1ActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
 
         TextName.setText("Top 10 Trending Content");
+        String startdate = StartButton.getText();
+        String enddate = EndButton.getText();
+        
 
-        TextName.setVisible(true);
+        
 
-        String costumerid = getUser.getText();
+        String costumerid = GetUser.getText();
+        
+        
+        
+        if(checkdate == true){
+            Connection conn = null;
+            String teamNumber = "1";
+            String sectionNumber = "914";
+            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+            String userPassword = "PZKNJ123";
+            //Building the connection
 
-        Connection conn = null;
-        String teamNumber = "1";
-        String sectionNumber = "914";
-        String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
-        String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
-        String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
-        String userPassword = "PZKNJ123";
-        //Building the connection
+            try{
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                System.exit(0);
+            }//end try catch
 
-        try{
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
-        }//end try catch
+            Vector<String> vector = new Vector<>();
 
-        Vector<String> vector = new Vector<>();
-
-        String titleid = "";
-        try{
-            //create a statement object
-            Statement stmt = conn.createStatement();
-
-            //create an SQL statement
-            String sqlStatement = "SELECT titleid,\n COUNT(customerid)\nFROM ratings\nGROUP BY titleid\nORDER BY COUNT(customerid) DESC\nFETCH FIRST 10 ROWS ONLY;";
-
-            //send statement to DBMS
-            ResultSet result1 = stmt.executeQuery(sqlStatement);
-
-            //OUTPUT
-
-            //System.out.println("______________________________________");
-            while (result1.next()) {
-                //System.out.println(result.getString("cus_lname"));
-
-                titleid += result1.getString("titleid")+"\n";
-                vector.add(result1.getString("titleid"));
-
-                //originaltitle += result2.getString("originaltitle")+"\n";
-                //System.err.println(result2.getString("originaltitle"));
-                /*
-
-                Statement stmt1 = conn.createStatement();
-                result2 = stmt1.executeQuery(sqlStatement);
-                //System.err.println(result2.getString("originaltitle"));
-                originaltitle = result2.getString("originaltitle")+"\n";
-                */
-
-            }
-
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            //System.exit(0);
-        }
-
-        String originaltitle = "";
-
-        String sqlStatement = "";
-        for(int i = 0; i < vector.size(); i++){
-            sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+            String titleid = "";
             try{
                 //create a statement object
                 Statement stmt = conn.createStatement();
 
                 //create an SQL statement
+                String sqlStatement = "SELECT titleid,\nCOUNT(customerid)\nFROM ratings\nWHERE date BETWEEN '" + startdate + "' AND '" + enddate + "'\nGROUP BY titleid\nORDER BY COUNT(customerid) DESC\nFETCH FIRST 10 ROWS ONLY;";               
 
                 //send statement to DBMS
                 ResultSet result1 = stmt.executeQuery(sqlStatement);
@@ -560,7 +528,8 @@ public class ContentViewer extends javax.swing.JFrame {
                 while (result1.next()) {
                     //System.out.println(result.getString("cus_lname"));
 
-                    originaltitle += result1.getString("originaltitle")+"\n";
+                    titleid += result1.getString("titleid")+"\n";
+                    vector.add(result1.getString("titleid"));
 
                     //originaltitle += result2.getString("originaltitle")+"\n";
                     //System.err.println(result2.getString("originaltitle"));
@@ -580,10 +549,147 @@ public class ContentViewer extends javax.swing.JFrame {
                 System.err.println(e.getClass().getName()+": "+e.getMessage());
                 //System.exit(0);
             }
+            
+            String originaltitle = "";
 
+            String sqlStatement = "";
+            for(int i = 0; i < vector.size(); i++){
+                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+                try{
+                    //create a statement object
+                    Statement stmt = conn.createStatement();
+
+                    //create an SQL statement
+
+                    //send statement to DBMS
+                    ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                    //OUTPUT
+
+                    //System.out.println("______________________________________");
+                    while (result1.next()) {
+                        //System.out.println(result.getString("cus_lname"));
+
+                        originaltitle += result1.getString("originaltitle")+"\n";
+
+                        //originaltitle += result2.getString("originaltitle")+"\n";
+                        //System.err.println(result2.getString("originaltitle"));
+                        /*
+
+                        Statement stmt1 = conn.createStatement();
+                        result2 = stmt1.executeQuery(sqlStatement);
+                        //System.err.println(result2.getString("originaltitle"));
+                        originaltitle = result2.getString("originaltitle")+"\n";
+                        */
+
+                    }
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                    //System.exit(0);
+                }
+
+            }
+            
+            
+            Result.setText(originaltitle);
         }
+        else{
 
-        Result.setText(originaltitle);
+            Connection conn = null;
+            String teamNumber = "1";
+            String sectionNumber = "914";
+            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+            String userPassword = "PZKNJ123";
+            //Building the connection
+
+            try{
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                System.exit(0);
+            }//end try catch
+
+            Vector<String> vector = new Vector<>();
+
+            String titleid = "";
+            try{
+                //create a statement object
+                Statement stmt = conn.createStatement();
+
+                //create an SQL statement
+                String sqlStatement = "SELECT titleid,\n COUNT(customerid)\nFROM ratings\nGROUP BY titleid\nORDER BY COUNT(customerid) DESC\nFETCH FIRST 10 ROWS ONLY;";
+
+                //send statement to DBMS
+                ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                //OUTPUT
+
+                //System.out.println("______________________________________");
+                while (result1.next()) {
+                    //System.out.println(result.getString("cus_lname"));
+
+                    titleid += result1.getString("titleid")+"\n";
+                    vector.add(result1.getString("titleid"));
+
+                  
+
+                }
+
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                //System.exit(0);
+            }
+
+            String originaltitle = "";
+
+            String sqlStatement = "";
+            for(int i = 0; i < vector.size(); i++){
+                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+                try{
+                    //create a statement object
+                    Statement stmt = conn.createStatement();
+
+                    //create an SQL statement
+
+                    //send statement to DBMS
+                    ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                    //OUTPUT
+
+                    //System.out.println("______________________________________");
+                    while (result1.next()) {
+                        //System.out.println(result.getString("cus_lname"));
+
+                        originaltitle += result1.getString("originaltitle")+"\n";
+
+                       
+
+                    }
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                    //System.exit(0);
+                }
+
+            }
+            Result.setText(originaltitle);
+        }
+        checkdate = false;
+
+       
+
+        
     }//GEN-LAST:event_TrendingBotton1ActionPerformed
 
     private void GenreButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenreButton1ActionPerformed
@@ -602,111 +708,211 @@ public class ContentViewer extends javax.swing.JFrame {
 
         // TODO add your handling code here:
 
-        String costumerid = getUser.getText();
+        String costumerid = GetUser.getText();
+        String startdate = StartButton.getText();
+        String enddate = EndButton.getText();
+             
         TextName.setText("Watch History");
+        
+        if(checkdate == true){
+            
+            Connection conn = null;
+            String teamNumber = "1";
+            String sectionNumber = "914";
+            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+            String userPassword = "PZKNJ123";
+            //Building the connection
 
-        Connection conn = null;
-        String teamNumber = "1";
-        String sectionNumber = "914";
-        String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
-        String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
-        String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
-        String userPassword = "PZKNJ123";
-        //Building the connection
+            try{
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                System.exit(0);
+            }//end try catch
 
-        try{
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
-        }//end try catch
+            Vector<String> vector = new Vector<>();
 
-        Vector<String> vector = new Vector<>();
+            String titleid = "";
+            try{
+                //create a statement object
+                Statement stmt = conn.createStatement();
 
-        String titleid = "";
-        try{
-            //create a statement object
-            Statement stmt = conn.createStatement();
+                //create an SQL statement
+                String sqlStatement = "SELECT titleid FROM ratings\nWHERE date BETWEEN '" + startdate + "' AND '" + enddate + "'\nAND ratings.customerid = '" + costumerid + "'\nORDER BY date DESC LIMIT 10;";               
 
-            //create an SQL statement
-            String sqlStatement = "SELECT titleid FROM ratings WHERE customerid = '" + costumerid + "';";
+                //send statement to DBMS
+                ResultSet result1 = stmt.executeQuery(sqlStatement);
 
-            //send statement to DBMS
-            ResultSet result1 = stmt.executeQuery(sqlStatement);
+                //OUTPUT
 
-            //OUTPUT
+                //System.out.println("______________________________________");
+                while (result1.next()) {
+                    //System.out.println(result.getString("cus_lname"));
 
-            //System.out.println("______________________________________");
-            while (result1.next()) {
-                //System.out.println(result.getString("cus_lname"));
+                    titleid += result1.getString("titleid")+"\n";
+                    vector.add(result1.getString("titleid"));
 
-                titleid += result1.getString("titleid")+"\n";
-                vector.add(result1.getString("titleid"));
+                    //originaltitle += result2.getString("originaltitle")+"\n";
+                    //System.err.println(result2.getString("originaltitle"));
+                    /*
 
-                //originaltitle += result2.getString("originaltitle")+"\n";
-                //System.err.println(result2.getString("originaltitle"));
-                /*
+                    Statement stmt1 = conn.createStatement();
+                    result2 = stmt1.executeQuery(sqlStatement);
+                    //System.err.println(result2.getString("originaltitle"));
+                    originaltitle = result2.getString("originaltitle")+"\n";
+                    */
 
-                Statement stmt1 = conn.createStatement();
-                result2 = stmt1.executeQuery(sqlStatement);
-                //System.err.println(result2.getString("originaltitle"));
-                originaltitle = result2.getString("originaltitle")+"\n";
-                */
+                }
 
             }
+            catch(Exception e){
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                //System.exit(0);
+            }
+            
+            String originaltitle = "";
 
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            //System.exit(0);
-        }
-
-        String originaltitle = "";
-
-        try{
-            //create a statement object
-            Statement stmt = conn.createStatement();
             String sqlStatement = "";
             for(int i = 0; i < vector.size(); i++){
-                //System.err.println(vector.get(i));
-                sqlStatement += "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';\n";
+                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+                try{
+                    //create a statement object
+                    Statement stmt = conn.createStatement();
+
+                    //create an SQL statement
+
+                    //send statement to DBMS
+                    ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                    //OUTPUT
+
+                    //System.out.println("______________________________________");
+                    while (result1.next()) {
+                        //System.out.println(result.getString("cus_lname"));
+
+                        originaltitle += result1.getString("originaltitle")+"\n";
+
+                        //originaltitle += result2.getString("originaltitle")+"\n";
+                        //System.err.println(result2.getString("originaltitle"));
+                        /*
+
+                        Statement stmt1 = conn.createStatement();
+                        result2 = stmt1.executeQuery(sqlStatement);
+                        //System.err.println(result2.getString("originaltitle"));
+                        originaltitle = result2.getString("originaltitle")+"\n";
+                        */
+
+                    }
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                    //System.exit(0);
+                }
+
+            }
+            
+            
+            Result.setText(originaltitle);
+        }
+        else{
+            
+            Connection conn = null;
+            String teamNumber = "1";
+            String sectionNumber = "914";
+            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+            String userPassword = "PZKNJ123";
+            //Building the connection
+
+            try{
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                System.exit(0);
+            }//end try catch
+
+            Vector<String> vector = new Vector<>();
+
+            String titleid = "";
+            try{
+                //create a statement object
+                Statement stmt = conn.createStatement();
+
+                //create an SQL statement
+                String sqlStatement = "SELECT titleid FROM ratings WHERE customerid = '" + costumerid + "';";
+
+                //send statement to DBMS
+                ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                //OUTPUT
+
+                //System.out.println("______________________________________");
+                while (result1.next()) {
+                    //System.out.println(result.getString("cus_lname"));
+
+                    titleid += result1.getString("titleid")+"\n";
+                    vector.add(result1.getString("titleid"));
+                    
+
+                  
+
+                }
+
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                //System.exit(0);
             }
 
-            //create an SQL statement
+            String originaltitle = "";
 
-            //send statement to DBMS
-            ResultSet result1 = stmt.executeQuery(sqlStatement);
+            String sqlStatement = "";
+            for(int i = 0; i < vector.size(); i++){
+                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+                try{
+                    //create a statement object
+                    Statement stmt = conn.createStatement();
 
-            //OUTPUT
+                    //create an SQL statement
 
-            //System.out.println("______________________________________");
-            while (result1.next()) {
-                //System.out.println(result.getString("cus_lname"));
+                    //send statement to DBMS
+                    ResultSet result1 = stmt.executeQuery(sqlStatement);
 
-                originaltitle += result1.getString("originaltitle")+"\n";
+                    //OUTPUT
 
-                //originaltitle += result2.getString("originaltitle")+"\n";
-                //System.err.println(result2.getString("originaltitle"));
-                /*
+                    //System.out.println("______________________________________");
+                    while (result1.next()) {
+                        //System.out.println(result.getString("cus_lname"));
 
-                Statement stmt1 = conn.createStatement();
-                result2 = stmt1.executeQuery(sqlStatement);
-                //System.err.println(result2.getString("originaltitle"));
-                originaltitle = result2.getString("originaltitle")+"\n";
-                */
+                        originaltitle += result1.getString("originaltitle")+"\n";
+
+                       
+
+                    }
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                    //System.exit(0);
+                }
 
             }
-
+            Result.setText(originaltitle);
         }
-        catch(Exception e){
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            //System.exit(0);
-        }
-        Result.setText(originaltitle);
+        
+        checkdate = false;
     }//GEN-LAST:event_historyButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
@@ -716,6 +922,11 @@ public class ContentViewer extends javax.swing.JFrame {
     private void TextNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextNameActionPerformed
+
+    private void DatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatesButtonActionPerformed
+        // TODO add your handling code here:
+        checkdate = true;
+    }//GEN-LAST:event_DatesButtonActionPerformed
 
     
   
@@ -770,9 +981,11 @@ public class ContentViewer extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DatesButton;
     private javax.swing.JTextField EndButton;
     private javax.swing.JButton GenreButton;
     private javax.swing.JButton GenreButton1;
+    private javax.swing.JTextField GetUser;
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton Recommended;
     private javax.swing.JButton Recommended1;
@@ -782,7 +995,6 @@ public class ContentViewer extends javax.swing.JFrame {
     private javax.swing.JButton TrendingBotton;
     private javax.swing.JButton TrendingBotton1;
     private javax.swing.JTextField getUser;
-    private javax.swing.JTextField getUser1;
     private javax.swing.JButton historyButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;

@@ -39,6 +39,8 @@ public class ContentAnalyst extends javax.swing.JFrame {
 
     }
     
+    boolean checkdate = false;
+    
     Scanner Maya = new Scanner(System.in);
     
    
@@ -62,7 +64,7 @@ public class ContentAnalyst extends javax.swing.JFrame {
         Recommended = new javax.swing.JButton();
         GenreButton = new javax.swing.JButton();
         TrendingBotton = new javax.swing.JButton();
-        getUser = new javax.swing.JTextField();
+        GetUser = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         HomeButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -71,6 +73,9 @@ public class ContentAnalyst extends javax.swing.JFrame {
         TextName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         Result = new javax.swing.JTextArea();
+        StartButton = new javax.swing.JTextField();
+        EndButton = new javax.swing.JTextField();
+        DatesButton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -100,29 +105,23 @@ public class ContentAnalyst extends javax.swing.JFrame {
             }
         });
 
-        getUser.setBackground(new java.awt.Color(17, 23, 64));
-        getUser.setForeground(new java.awt.Color(149, 152, 207));
-        getUser.setText(" Search");
-        getUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getUserActionPerformed(evt);
-            }
-        });
+        GetUser.setBackground(new java.awt.Color(204, 204, 204));
+        GetUser.setText("Search");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(GenreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Recommended, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TrendingBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(getUser, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9))
+                .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +131,7 @@ public class ContentAnalyst extends javax.swing.JFrame {
                     .addComponent(Recommended)
                     .addComponent(GenreButton)
                     .addComponent(TrendingBotton)
-                    .addComponent(getUser, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -172,7 +171,7 @@ public class ContentAnalyst extends javax.swing.JFrame {
                 .addComponent(HomeButton)
                 .addGap(57, 57, 57)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(51, 51, 51)
                 .addComponent(jButton5)
@@ -195,6 +194,30 @@ public class ContentAnalyst extends javax.swing.JFrame {
         Result.setBorder(null);
         jScrollPane2.setViewportView(Result);
 
+        StartButton.setBackground(new java.awt.Color(204, 204, 204));
+        StartButton.setText("Start Date");
+        StartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartButtonActionPerformed(evt);
+            }
+        });
+
+        EndButton.setBackground(new java.awt.Color(204, 204, 204));
+        EndButton.setText("End Date");
+        EndButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EndButtonActionPerformed(evt);
+            }
+        });
+
+        DatesButton.setBackground(new java.awt.Color(255, 255, 255));
+        DatesButton.setText("Dates");
+        DatesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -202,14 +225,23 @@ public class ContentAnalyst extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(DatesButton)
+                                        .addGap(96, 96, 96))))))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -218,14 +250,23 @@ public class ContentAnalyst extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(DatesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -250,23 +291,19 @@ public class ContentAnalyst extends javax.swing.JFrame {
 
     }//GEN-LAST:event_HomeButtonActionPerformed
 
-    private void getUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getUserActionPerformed
-
     private void GenreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenreButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GenreButtonActionPerformed
 
     private void TrendingBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrendingBottonActionPerformed
+         // TODO add your handling code here:
         // TODO add your handling code here:
-        // TODO add your handling code here:
-
+        
         TextName.setText("Top 10 Trending Content");
 
         TextName.setVisible(true);
 
-        String costumerid = getUser.getText();
+     
 
         Connection conn = null;
         String teamNumber = "1";
@@ -374,6 +411,19 @@ public class ContentAnalyst extends javax.swing.JFrame {
 
     }//GEN-LAST:event_TrendingBottonActionPerformed
 
+    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StartButtonActionPerformed
+
+    private void EndButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EndButtonActionPerformed
+
+    private void DatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatesButtonActionPerformed
+        // TODO add your handling code here:
+        checkdate = true;
+    }//GEN-LAST:event_DatesButtonActionPerformed
+
     
   
     
@@ -427,13 +477,16 @@ public class ContentAnalyst extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DatesButton;
+    private javax.swing.JTextField EndButton;
     private javax.swing.JButton GenreButton;
+    private javax.swing.JTextField GetUser;
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton Recommended;
     private javax.swing.JTextArea Result;
+    private javax.swing.JTextField StartButton;
     private javax.swing.JTextField TextName;
     private javax.swing.JButton TrendingBotton;
-    private javax.swing.JTextField getUser;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
