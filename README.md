@@ -1,7 +1,3 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=5859009&assignment_repo_type=AssignmentRepo)
-# pa2-implementing-a-linux-shell
+Database Dive
 
-In this programming assignment, you are going to implement your very own linux shell. Your shell should have the ability to function almost as much as the linux/ubuntu shell in your OS, which lets a user navigate through the file system and perform a wide variety of tasks using a series of easy to remember and simple commands. 
-
-Please follow the instructions posted in Canvas about PA-2 to get started.
-
+This project also gives you experience creating a software system that handles data hosted in the cloud and provides a customized user experience for two different groups of users.  Users want to make informed decisions based on large amounts of data, but often have no way to store, organize, and understand the data to make these decisions.  This is where your team comes in to create a solution to help them with this problem.
