@@ -31,17 +31,24 @@ public class ContentViewer extends javax.swing.JFrame {
     /** Creates new form Antenna */
     public ContentViewer() {
         
-       
-        
         initComponents();
-       
+        name.setText("  titanic {float: none;}");
+        TextName.setText("Content Viewer");
+        DatesButton.setVisible(false);
+        StartButton.setVisible(false);
+        EndButton.setVisible(false);
         
-
+        
     }
     
     Scanner Maya = new Scanner(System.in);
     
-    boolean checkdate = false;
+    boolean trending = false;
+    boolean history = false;
+    String customerID = "";
+    
+    
+    
     
    
     
@@ -66,22 +73,20 @@ public class ContentViewer extends javax.swing.JFrame {
         getUser = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        HomeButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         historyButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        viewerschoicebutton = new javax.swing.JButton();
+        ViewerBewareButton = new javax.swing.JButton();
+        TrendingBotton1 = new javax.swing.JButton();
         EndButton = new javax.swing.JTextField();
         StartButton = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        Recommended1 = new javax.swing.JButton();
-        GenreButton1 = new javax.swing.JButton();
-        TrendingBotton1 = new javax.swing.JButton();
-        GetUser = new javax.swing.JTextField();
         TextName = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         Result = new javax.swing.JTextArea();
         DatesButton = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        GetUser = new javax.swing.JTextField();
+        HomeButton6 = new javax.swing.JButton();
+        name = new javax.swing.JTextField();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -146,18 +151,11 @@ public class ContentViewer extends javax.swing.JFrame {
         setTitle("Antenna");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMaximumSize(new java.awt.Dimension(739, 423));
+        jPanel3.setMinimumSize(new java.awt.Dimension(739, 423));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
-
-        HomeButton.setBackground(new java.awt.Color(255, 255, 255));
-        HomeButton.setText("HOME");
-        HomeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HomeButtonActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("SAVED");
+        jPanel1.setPreferredSize(new java.awt.Dimension(153, 299));
 
         historyButton.setText("HISTORY");
         historyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,64 +164,17 @@ public class ContentViewer extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("PREFERENCES");
-
-        jButton5.setText("SETTINGS");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(historyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(HomeButton)
-                .addGap(31, 31, 31)
-                .addComponent(jButton2)
-                .addGap(34, 34, 34)
-                .addComponent(historyButton)
-                .addGap(35, 35, 35)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(29, 29, 29))
-        );
-
-        EndButton.setBackground(new java.awt.Color(204, 204, 204));
-        EndButton.setText("End Date");
-        EndButton.addActionListener(new java.awt.event.ActionListener() {
+        viewerschoicebutton.setText("VIEWER'S CHOICE");
+        viewerschoicebutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EndButtonActionPerformed(evt);
+                viewerschoicebuttonActionPerformed(evt);
             }
         });
 
-        StartButton.setBackground(new java.awt.Color(204, 204, 204));
-        StartButton.setText("Start Date");
-        StartButton.addActionListener(new java.awt.event.ActionListener() {
+        ViewerBewareButton.setText("VIEWER BEWARE");
+        ViewerBewareButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StartButtonActionPerformed(evt);
-            }
-        });
-
-        jPanel4.setBackground(new java.awt.Color(0, 0, 204));
-
-        Recommended1.setText("RECOMMENDED");
-
-        GenreButton1.setText("GENRE");
-        GenreButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenreButton1ActionPerformed(evt);
+                ViewerBewareButtonActionPerformed(evt);
             }
         });
 
@@ -234,35 +185,46 @@ public class ContentViewer extends javax.swing.JFrame {
             }
         });
 
-        GetUser.setBackground(new java.awt.Color(204, 204, 204));
-        GetUser.setText("Search");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
-                .addComponent(GenreButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Recommended1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TrendingBotton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewerschoicebutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(historyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewerBewareButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TrendingBotton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Recommended1)
-                    .addComponent(GenreButton1)
-                    .addComponent(TrendingBotton1)
-                    .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(TrendingBotton1)
+                .addGap(53, 53, 53)
+                .addComponent(historyButton)
+                .addGap(53, 53, 53)
+                .addComponent(viewerschoicebutton)
+                .addGap(53, 53, 53)
+                .addComponent(ViewerBewareButton)
+                .addGap(35, 35, 35))
         );
+
+        EndButton.setBackground(new java.awt.Color(204, 204, 204));
+        EndButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EndButtonActionPerformed(evt);
+            }
+        });
+
+        StartButton.setBackground(new java.awt.Color(204, 204, 204));
+        StartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartButtonActionPerformed(evt);
+            }
+        });
 
         TextName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TextName.setBorder(null);
@@ -288,18 +250,69 @@ public class ContentViewer extends javax.swing.JFrame {
             }
         });
 
+        jPanel10.setBackground(new java.awt.Color(0, 0, 204));
+
+        GetUser.setBackground(new java.awt.Color(204, 204, 204));
+        GetUser.setText("Costumer ID");
+        GetUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GetUserActionPerformed(evt);
+            }
+        });
+
+        HomeButton6.setText("HOME");
+        HomeButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButton6ActionPerformed(evt);
+            }
+        });
+
+        name.setBackground(new java.awt.Color(0, 0, 204));
+        name.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(102, 204, 255));
+        name.setText("titanic {float: none;} ");
+        name.setBorder(null);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(HomeButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(126, 126, 126)
+                .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GetUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HomeButton6))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(name)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(15, 15, 15)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,33 +322,33 @@ public class ContentViewer extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(DatesButton)
-                                        .addGap(103, 103, 103))))))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                                        .addGap(103, 103, 103)))))))
+                .addGap(15, 15, 15))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(15, 15, 15)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(DatesButton)
+                                .addGap(2, 2, 2)
+                                .addComponent(DatesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(EndButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TextName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -346,7 +359,7 @@ public class ContentViewer extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -360,11 +373,23 @@ public class ContentViewer extends javax.swing.JFrame {
         // TODO add your handling code here:
         // TODO add your handling code here:
 
+    }//GEN-LAST:event_TrendingBottonActionPerformed
+
+    private void getUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getUserActionPerformed
+
+    private void TrendingBotton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrendingBotton1ActionPerformed
+        // TODO add your handling code here:
+        trending = true;
+        history = false;
+        // TODO add your handling code here:
+        Result.setText(" ");
         TextName.setText("Top 10 Trending Content");
-
-        TextName.setVisible(true);
-
-        String costumerid = getUser.getText();
+        StartButton.setVisible(true);
+        EndButton.setVisible(true);
+        DatesButton.setVisible(true);
+       
 
         Connection conn = null;
         String teamNumber = "1";
@@ -406,15 +431,7 @@ public class ContentViewer extends javax.swing.JFrame {
                 titleid += result1.getString("titleid")+"\n";
                 vector.add(result1.getString("titleid"));
 
-                //originaltitle += result2.getString("originaltitle")+"\n";
-                //System.err.println(result2.getString("originaltitle"));
-                /*
 
-                Statement stmt1 = conn.createStatement();
-                result2 = stmt1.executeQuery(sqlStatement);
-                //System.err.println(result2.getString("originaltitle"));
-                originaltitle = result2.getString("originaltitle")+"\n";
-                */
 
             }
 
@@ -447,6 +464,192 @@ public class ContentViewer extends javax.swing.JFrame {
 
                     originaltitle += result1.getString("originaltitle")+"\n";
 
+
+
+                }
+
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                //System.exit(0);
+            }
+
+        }
+        Result.setText(originaltitle);
+
+        
+
+       
+
+        
+    }//GEN-LAST:event_TrendingBotton1ActionPerformed
+
+    private void EndButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EndButtonActionPerformed
+
+    private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
+
+        // TODO add your handling code here:
+        trending = false;
+        history = true;
+        Result.setText(" ");
+        customerID = GetUser.getText();
+        StartButton.setVisible(true);
+        EndButton.setVisible(true);
+        DatesButton.setVisible(true);
+        
+        
+             
+        TextName.setText("Watch History");
+        
+       
+            
+        Connection conn = null;
+        String teamNumber = "1";
+        String sectionNumber = "914";
+        String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+        String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+        String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+        String userPassword = "PZKNJ123";
+        //Building the connection
+
+        try{
+            Class.forName("org.postgresql.Driver");
+            conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }//end try catch
+
+        Vector<String> vector = new Vector<>();
+
+        String titleid = "";
+        try{
+            //create a statement object
+            Statement stmt = conn.createStatement();
+
+            //create an SQL statement
+            String sqlStatement = "SELECT titleid FROM ratings WHERE customerid = '" + customerID + "';";
+
+            //send statement to DBMS
+            ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+            //OUTPUT
+
+            //System.out.println("______________________________________");
+            while (result1.next()) {
+                //System.out.println(result.getString("cus_lname"));
+
+                titleid += result1.getString("titleid")+"\n";
+                vector.add(result1.getString("titleid"));
+
+
+
+
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            //System.exit(0);
+        }
+
+        String originaltitle = "";
+
+        String sqlStatement = "";
+        for(int i = 0; i < vector.size(); i++){
+            sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+            try{
+                //create a statement object
+                Statement stmt = conn.createStatement();
+
+                //create an SQL statement
+
+                //send statement to DBMS
+                ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                //OUTPUT
+
+                //System.out.println("______________________________________");
+                while (result1.next()) {
+                    //System.out.println(result.getString("cus_lname"));
+
+                    originaltitle += result1.getString("originaltitle")+"\n";
+
+
+
+                }
+
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                //System.exit(0);
+            }
+
+        }
+        Result.setText(originaltitle);
+        
+        
+        
+    }//GEN-LAST:event_historyButtonActionPerformed
+
+    private void TextNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextNameActionPerformed
+
+    private void DatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatesButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if(history){
+            String startdate = StartButton.getText();
+            String enddate = EndButton.getText();
+            
+            Connection conn = null;
+            String teamNumber = "1";
+            String sectionNumber = "914";
+            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+            String userPassword = "PZKNJ123";
+            //Building the connection
+
+            try{
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println(e.getClass().getName()+": "+e.getMessage());
+                System.exit(0);
+            }//end try catch
+
+            Vector<String> vector = new Vector<>();
+
+            String titleid = "";
+            try{
+                //create a statement object
+                Statement stmt = conn.createStatement();
+
+                //create an SQL statement
+                String sqlStatement = "SELECT titleid FROM ratings\nWHERE date BETWEEN '" + startdate + "' AND '" + enddate + "'\nAND ratings.customerid = '" + customerID + "';";               
+
+                //send statement to DBMS
+                ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                //OUTPUT
+
+                //System.out.println("______________________________________");
+                while (result1.next()) {
+                    //System.out.println(result.getString("cus_lname"));
+
+                    titleid += result1.getString("titleid")+"\n";
+                    vector.add(result1.getString("titleid"));
+
                     //originaltitle += result2.getString("originaltitle")+"\n";
                     //System.err.println(result2.getString("originaltitle"));
                     /*
@@ -465,32 +668,60 @@ public class ContentViewer extends javax.swing.JFrame {
                 System.err.println(e.getClass().getName()+": "+e.getMessage());
                 //System.exit(0);
             }
+            
+            String originaltitle = "";
 
+            String sqlStatement = "";
+            for(int i = 0; i < vector.size(); i++){
+                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
+                try{
+                    //create a statement object
+                    Statement stmt = conn.createStatement();
+
+                    //create an SQL statement
+
+                    //send statement to DBMS
+                    ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+                    //OUTPUT
+
+                    //System.out.println("______________________________________");
+                    while (result1.next()) {
+                        //System.out.println(result.getString("cus_lname"));
+
+                        originaltitle += result1.getString("originaltitle")+"\n";
+
+                        //originaltitle += result2.getString("originaltitle")+"\n";
+                        //System.err.println(result2.getString("originaltitle"));
+                        /*
+
+                        Statement stmt1 = conn.createStatement();
+                        result2 = stmt1.executeQuery(sqlStatement);
+                        //System.err.println(result2.getString("originaltitle"));
+                        originaltitle = result2.getString("originaltitle")+"\n";
+                        */
+
+                    }
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName()+": "+e.getMessage());
+                    //System.exit(0);
+                }
+
+            }
+            
+            
+            Result.setText(originaltitle);
+            
+            
         }
-
-        Result.setText(originaltitle);
-    }//GEN-LAST:event_TrendingBottonActionPerformed
-
-    private void getUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getUserActionPerformed
-
-    private void TrendingBotton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrendingBotton1ActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-
-        TextName.setText("Top 10 Trending Content");
-        String startdate = StartButton.getText();
-        String enddate = EndButton.getText();
         
-
-        
-
-        String costumerid = GetUser.getText();
-        
-        
-        
-        if(checkdate == true){
+        if(trending){
+            String startdate = StartButton.getText();
+            String enddate = EndButton.getText();
+            
             Connection conn = null;
             String teamNumber = "1";
             String sectionNumber = "914";
@@ -595,36 +826,86 @@ public class ContentViewer extends javax.swing.JFrame {
             
             
             Result.setText(originaltitle);
+            
+           
         }
-        else{
+        
+        
+        
+    }//GEN-LAST:event_DatesButtonActionPerformed
 
-            Connection conn = null;
-            String teamNumber = "1";
-            String sectionNumber = "914";
-            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
-            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
-            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
-            String userPassword = "PZKNJ123";
-            //Building the connection
+    private void viewerschoicebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewerschoicebuttonActionPerformed
+        // TODO add your handling code here:
+        
+        Result.setText(" ");
+        TextName.setText("Top 10 Viewer's Choice");
+        StartButton.setVisible(false);
+        EndButton.setVisible(false);
+        DatesButton.setVisible(false);
+        
+        
+        Connection conn = null;
+        String teamNumber = "1";
+        String sectionNumber = "914";
+        String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+        String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+        String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+        String userPassword = "PZKNJ123";
+        //Building the connection
 
-            try{
-                Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-                System.exit(0);
-            }//end try catch
+        try{
+            Class.forName("org.postgresql.Driver");
+            conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }//end try catch
 
-            Vector<String> vector = new Vector<>();
+        Vector<String> vector = new Vector<>();
 
-            String titleid = "";
+        String titleid = "";
+        try{
+            //create a statement object
+            Statement stmt = conn.createStatement();
+
+            //create an SQL statement
+            String sqlStatement = "SELECT titleid from RF\nFETCH FIRST 10 ROWS ONLY;";
+
+            //send statement to DBMS
+            ResultSet result1 = stmt.executeQuery(sqlStatement);
+
+            //OUTPUT
+
+            //System.out.println("______________________________________");
+            while (result1.next()) {
+                //System.out.println(result.getString("cus_lname"));
+
+                titleid += result1.getString("titleid")+"\n";
+                vector.add(result1.getString("titleid"));
+
+
+
+
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            //System.exit(0);
+        }
+
+        String originaltitle = "";
+
+        String sqlStatement = "";
+        for(int i = 0; i < vector.size(); i++){
+            sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
             try{
                 //create a statement object
                 Statement stmt = conn.createStatement();
 
                 //create an SQL statement
-                String sqlStatement = "SELECT titleid,\n COUNT(customerid)\nFROM ratings\nGROUP BY titleid\nORDER BY COUNT(customerid) DESC\nFETCH FIRST 10 ROWS ONLY;";
 
                 //send statement to DBMS
                 ResultSet result1 = stmt.executeQuery(sqlStatement);
@@ -635,10 +916,9 @@ public class ContentViewer extends javax.swing.JFrame {
                 while (result1.next()) {
                     //System.out.println(result.getString("cus_lname"));
 
-                    titleid += result1.getString("titleid")+"\n";
-                    vector.add(result1.getString("titleid"));
+                    originaltitle += result1.getString("originaltitle")+"\n";
 
-                  
+
 
                 }
 
@@ -649,100 +929,90 @@ public class ContentViewer extends javax.swing.JFrame {
                 //System.exit(0);
             }
 
-            String originaltitle = "";
+        }
+        Result.setText(originaltitle);
+        
+        
+    }//GEN-LAST:event_viewerschoicebuttonActionPerformed
 
-            String sqlStatement = "";
-            for(int i = 0; i < vector.size(); i++){
-                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
-                try{
-                    //create a statement object
-                    Statement stmt = conn.createStatement();
+    private void ViewerBewareButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewerBewareButtonActionPerformed
+        // TODO add your handling code here:
+        Result.setText(" ");
+        TextName.setText("Top 10 Viewer Beware");
+        StartButton.setVisible(false);
+        EndButton.setVisible(false);
+        DatesButton.setVisible(false);
+        
 
-                    //create an SQL statement
+        Connection conn = null;
+        String teamNumber = "1";
+        String sectionNumber = "914";
+        String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
+        String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
+        String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
+        String userPassword = "PZKNJ123";
+        //Building the connection
 
-                    //send statement to DBMS
-                    ResultSet result1 = stmt.executeQuery(sqlStatement);
+        try{
+            Class.forName("org.postgresql.Driver");
+            conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }//end try catch
 
-                    //OUTPUT
+        Vector<String> vector = new Vector<>();
 
-                    //System.out.println("______________________________________");
-                    while (result1.next()) {
-                        //System.out.println(result.getString("cus_lname"));
+        String titleid = "";
+        try{
+            //create a statement object
+            Statement stmt = conn.createStatement();
 
-                        originaltitle += result1.getString("originaltitle")+"\n";
+            //create an SQL statement
+            String sqlStatement = "SELECT titleid,\nCOUNT(customerid), rating\nFROM ratings\nWHERE rating < 3\nGROUP BY titleid, rating\nORDER BY COUNT(customerid) DESC, rating\nFETCH FIRST 10 ROWS ONLY;";               
 
-                       
+            //send statement to DBMS
+            ResultSet result1 = stmt.executeQuery(sqlStatement);
 
-                    }
+            //OUTPUT
 
-                }
-                catch(Exception e){
-                    e.printStackTrace();
-                    System.err.println(e.getClass().getName()+": "+e.getMessage());
-                    //System.exit(0);
-                }
+            //System.out.println("______________________________________");
+            while (result1.next()) {
+                //System.out.println(result.getString("cus_lname"));
+
+                titleid += result1.getString("titleid")+"\n";
+                vector.add(result1.getString("titleid"));
+
+                //originaltitle += result2.getString("originaltitle")+"\n";
+                //System.err.println(result2.getString("originaltitle"));
+                /*
+
+                Statement stmt1 = conn.createStatement();
+                result2 = stmt1.executeQuery(sqlStatement);
+                //System.err.println(result2.getString("originaltitle"));
+                originaltitle = result2.getString("originaltitle")+"\n";
+                */
 
             }
-            Result.setText(originaltitle);
+
         }
-        checkdate = false;
+        catch(Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            //System.exit(0);
+        }
 
-       
+        String originaltitle = "";
 
-        
-    }//GEN-LAST:event_TrendingBotton1ActionPerformed
-
-    private void GenreButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenreButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenreButton1ActionPerformed
-
-    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StartButtonActionPerformed
-
-    private void EndButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EndButtonActionPerformed
-
-    private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
-
-        // TODO add your handling code here:
-
-        String costumerid = GetUser.getText();
-        String startdate = StartButton.getText();
-        String enddate = EndButton.getText();
-             
-        TextName.setText("Watch History");
-        
-        if(checkdate == true){
-            
-            Connection conn = null;
-            String teamNumber = "1";
-            String sectionNumber = "914";
-            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
-            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
-            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
-            String userPassword = "PZKNJ123";
-            //Building the connection
-
-            try{
-                Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-                System.exit(0);
-            }//end try catch
-
-            Vector<String> vector = new Vector<>();
-
-            String titleid = "";
+        String sqlStatement = "";
+        for(int i = 0; i < vector.size(); i++){
+            sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
             try{
                 //create a statement object
                 Statement stmt = conn.createStatement();
 
                 //create an SQL statement
-                String sqlStatement = "SELECT titleid FROM ratings\nWHERE date BETWEEN '" + startdate + "' AND '" + enddate + "'\nAND ratings.customerid = '" + costumerid + "'\nORDER BY date DESC LIMIT 10;";               
 
                 //send statement to DBMS
                 ResultSet result1 = stmt.executeQuery(sqlStatement);
@@ -753,8 +1023,7 @@ public class ContentViewer extends javax.swing.JFrame {
                 while (result1.next()) {
                     //System.out.println(result.getString("cus_lname"));
 
-                    titleid += result1.getString("titleid")+"\n";
-                    vector.add(result1.getString("titleid"));
+                    originaltitle += result1.getString("originaltitle")+"\n";
 
                     //originaltitle += result2.getString("originaltitle")+"\n";
                     //System.err.println(result2.getString("originaltitle"));
@@ -774,159 +1043,29 @@ public class ContentViewer extends javax.swing.JFrame {
                 System.err.println(e.getClass().getName()+": "+e.getMessage());
                 //System.exit(0);
             }
-            
-            String originaltitle = "";
 
-            String sqlStatement = "";
-            for(int i = 0; i < vector.size(); i++){
-                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
-                try{
-                    //create a statement object
-                    Statement stmt = conn.createStatement();
-
-                    //create an SQL statement
-
-                    //send statement to DBMS
-                    ResultSet result1 = stmt.executeQuery(sqlStatement);
-
-                    //OUTPUT
-
-                    //System.out.println("______________________________________");
-                    while (result1.next()) {
-                        //System.out.println(result.getString("cus_lname"));
-
-                        originaltitle += result1.getString("originaltitle")+"\n";
-
-                        //originaltitle += result2.getString("originaltitle")+"\n";
-                        //System.err.println(result2.getString("originaltitle"));
-                        /*
-
-                        Statement stmt1 = conn.createStatement();
-                        result2 = stmt1.executeQuery(sqlStatement);
-                        //System.err.println(result2.getString("originaltitle"));
-                        originaltitle = result2.getString("originaltitle")+"\n";
-                        */
-
-                    }
-
-                }
-                catch(Exception e){
-                    e.printStackTrace();
-                    System.err.println(e.getClass().getName()+": "+e.getMessage());
-                    //System.exit(0);
-                }
-
-            }
-            
-            
-            Result.setText(originaltitle);
         }
-        else{
-            
-            Connection conn = null;
-            String teamNumber = "1";
-            String sectionNumber = "914";
-            String dbName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "db";
-            String dbConnectionString = "jdbc:postgresql://csce-315-db.engr.tamu.edu/" + dbName;
-            String userName = "csce315" + "_" + sectionNumber + "_" + teamNumber + "_" + "user";
-            String userPassword = "PZKNJ123";
-            //Building the connection
 
-            try{
-                Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection(dbConnectionString,userName, userPassword);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-                System.exit(0);
-            }//end try catch
 
-            Vector<String> vector = new Vector<>();
+        Result.setText(originaltitle);
+       
+    }//GEN-LAST:event_ViewerBewareButtonActionPerformed
 
-            String titleid = "";
-            try{
-                //create a statement object
-                Statement stmt = conn.createStatement();
-
-                //create an SQL statement
-                String sqlStatement = "SELECT titleid FROM ratings WHERE customerid = '" + costumerid + "';";
-
-                //send statement to DBMS
-                ResultSet result1 = stmt.executeQuery(sqlStatement);
-
-                //OUTPUT
-
-                //System.out.println("______________________________________");
-                while (result1.next()) {
-                    //System.out.println(result.getString("cus_lname"));
-
-                    titleid += result1.getString("titleid")+"\n";
-                    vector.add(result1.getString("titleid"));
-                    
-
-                  
-
-                }
-
-            }
-            catch(Exception e){
-                e.printStackTrace();
-                System.err.println(e.getClass().getName()+": "+e.getMessage());
-                //System.exit(0);
-            }
-
-            String originaltitle = "";
-
-            String sqlStatement = "";
-            for(int i = 0; i < vector.size(); i++){
-                sqlStatement = "SELECT originaltitle FROM content_management WHERE titleid = '" + vector.get(i) + "';";
-                try{
-                    //create a statement object
-                    Statement stmt = conn.createStatement();
-
-                    //create an SQL statement
-
-                    //send statement to DBMS
-                    ResultSet result1 = stmt.executeQuery(sqlStatement);
-
-                    //OUTPUT
-
-                    //System.out.println("______________________________________");
-                    while (result1.next()) {
-                        //System.out.println(result.getString("cus_lname"));
-
-                        originaltitle += result1.getString("originaltitle")+"\n";
-
-                       
-
-                    }
-
-                }
-                catch(Exception e){
-                    e.printStackTrace();
-                    System.err.println(e.getClass().getName()+": "+e.getMessage());
-                    //System.exit(0);
-                }
-
-            }
-            Result.setText(originaltitle);
-        }
-        
-        checkdate = false;
-    }//GEN-LAST:event_historyButtonActionPerformed
-
-    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
-
-    }//GEN-LAST:event_HomeButtonActionPerformed
-
-    private void TextNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNameActionPerformed
+    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextNameActionPerformed
+    }//GEN-LAST:event_StartButtonActionPerformed
 
-    private void DatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatesButtonActionPerformed
+    private void GetUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetUserActionPerformed
         // TODO add your handling code here:
-        checkdate = true;
-    }//GEN-LAST:event_DatesButtonActionPerformed
+        GetUser.setText("");
+    }//GEN-LAST:event_GetUserActionPerformed
+
+    private void HomeButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButton6ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        jdbcpostgreSQLGUI obj = new jdbcpostgreSQLGUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_HomeButton6ActionPerformed
 
     
   
@@ -984,29 +1123,47 @@ public class ContentViewer extends javax.swing.JFrame {
     private javax.swing.JButton DatesButton;
     private javax.swing.JTextField EndButton;
     private javax.swing.JButton GenreButton;
-    private javax.swing.JButton GenreButton1;
     private javax.swing.JTextField GetUser;
-    private javax.swing.JButton HomeButton;
+    private javax.swing.JTextField GetUser1;
+    private javax.swing.JTextField GetUser2;
+    private javax.swing.JTextField GetUser3;
+    private javax.swing.JTextField GetUser4;
+    private javax.swing.JTextField GetUser5;
+    private javax.swing.JButton HomeButton1;
+    private javax.swing.JButton HomeButton2;
+    private javax.swing.JButton HomeButton3;
+    private javax.swing.JButton HomeButton4;
+    private javax.swing.JButton HomeButton5;
+    private javax.swing.JButton HomeButton6;
     private javax.swing.JButton Recommended;
-    private javax.swing.JButton Recommended1;
     private javax.swing.JTextArea Result;
     private javax.swing.JTextField StartButton;
     private javax.swing.JTextField TextName;
     private javax.swing.JButton TrendingBotton;
     private javax.swing.JButton TrendingBotton1;
+    private javax.swing.JButton ViewerBewareButton;
     private javax.swing.JTextField getUser;
     private javax.swing.JButton historyButton;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField name;
+    private javax.swing.JButton viewerschoicebutton;
     // End of variables declaration//GEN-END:variables
     
 }
